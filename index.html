@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            background: url("2.jpg");
+            background-size: cover;
+        }
+        
+        .main {
+            display: table;
+            border: 3px solid red;
+            margin: auto;
+            background: white;
+            position: relative;
+            left: 397px;
+            border-radius: 10px;
+            top: 200px;
+        }
+        
+        .light {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            margin: 10px;
+            font-size: 40px;
+            line-height: 80px;
+            font-family: sans-serif;
+            background: black;
+        }
+    </style>
+    <script type="text/javascript">
+        var i = 0;
+        var n = 1;
+        var cArray = ["red", "yellow", "green"];
+
+        function trafficLight() {
+            var l = document.getElementsByClassName('light');
+            for (var j = 0; j < l.length; j++) {
+                l[j].style.background = "black";
+                l[j].innerHTML = "";
+            }
+            l[i].style.background = cArray[i];
+
+            if (i < l.length) {
+                if (n <= 3) {
+                    l[i].innerHTML = n;
+                    n++;
+                }
+                if (n == 4) {
+                    i++;
+                    n = 1;
+                    if (i == 3) {
+                        i = 0;
+                    }
+                }
+
+            }
+            // if (i == 3) {
+            //     i = 0;
+            // }
+            //i++
+        }
+        setInterval(trafficLight, 1000);
+    </script>
+</head>
+
+<body onload="trafficLight()">
+    <div class="main">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+
+</body>
+
+</html>
